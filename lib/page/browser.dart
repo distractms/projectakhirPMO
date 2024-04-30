@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_akhir_prototype3/home.dart';
 import 'package:project_akhir_prototype3/variabel/global_var.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -37,6 +36,15 @@ class _BrowserState extends State<Browser> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () async {
+            CurrentUrl.currentUrl = await controller.currentUrl() ?? '';
+            setState(() {
+              Navigator.pop(context);
+            });
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
         title: Text(TitleFastMenu.titleFastMenu),
       ),
       body: Stack(
@@ -102,6 +110,22 @@ class _BrowserState extends State<Browser> {
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
+                        // setting agar url sesuai
+                        setState(() {
+                          if (TitleFastMenu.titleFastMenu == "E-Presensi") {
+                            CurrentUrl.currentUrl =
+                                'https://student.amikompurwokerto.ac.id/presensi';
+                          }
+                          if (TitleFastMenu.titleFastMenu == "Rincian Nilai") {
+                            CurrentUrl.currentUrl =
+                                'https://student.amikompurwokerto.ac.id/rincian_nilai_new';
+                          }
+                          if (TitleFastMenu.titleFastMenu ==
+                              "Berita Akademik") {
+                            CurrentUrl.currentUrl =
+                                'https://student.amikompurwokerto.ac.id/pengumuman';
+                          }
+                        });
                       },
                       child: const Text('Lanjutkan'),
                     ),
