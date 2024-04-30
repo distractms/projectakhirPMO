@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 if (CurrentUrl.currentUrl !=
                                         "https://student.amikompurwokerto.ac.id/presensi" &&
                                     TitleFastMenu.titleFastMenu ==
-                                        "https://student.amikompurwokerto.ac.id/presensi") {
+                                        "E-Presensi") {
                                   CurrentUrl.currentUrl ==
                                       await controller.currentUrl();
                                 } else {
@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 if (CurrentUrl.currentUrl !=
                                         "https://student.amikompurwokerto.ac.id/rincian_nilai_new" &&
                                     TitleFastMenu.titleFastMenu ==
-                                        "https://student.amikompurwokerto.ac.id/rincian_nilai_new") {
+                                        "Rincian Nilai") {
                                   CurrentUrl.currentUrl ==
                                       await controller.currentUrl();
                                 } else {
@@ -200,7 +200,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 if (CurrentUrl.currentUrl !=
                                         "https://student.amikompurwokerto.ac.id/pengumuman" &&
                                     TitleFastMenu.titleFastMenu ==
-                                        "https://student.amikompurwokerto.ac.id/pengumuman") {
+                                        "Berita Akademik") {
                                   CurrentUrl.currentUrl ==
                                       await controller.currentUrl();
                                 } else {
