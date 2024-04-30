@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_akhir_prototype3/page/browser.dart';
+import 'package:project_akhir_prototype3/variabel/global_var.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -14,12 +16,26 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.purple[50],
       appBar: AppBar(
         title: const Text("Portal Mahasiswa"),
+        actions: [
+          // Indikator status login web student
+          Container(
+            margin: const EdgeInsets.only(
+              right: 10,
+            ),
+            width: 15,
+            height: 15,
+            color: CurrentUrl.currentUrl.toLowerCase() ==
+                    'https://student.amikompurwokerto.ac.id/Auth'
+                ? Colors.red
+                : Colors.green,
+          ),
+        ],
       ),
       body: Column(
         children: [
           Container(
             margin: const EdgeInsets.all(15.0),
-            height: 170,
+            height: 160,
             width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -30,17 +46,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: const EdgeInsets.symmetric(horizontal: 25.0),
-                  height: 60,
+                  height: 55,
                   width: double.infinity,
                   child: const Text(
                     "Student Fast Menu",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                SizedBox(
-                  height: 110,
+                Container(
+                  height: 100,
+                  width: double.infinity,
+                  margin: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
@@ -51,7 +72,19 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  CurrentUrl.currentUrl =
+                                      'https://student.amikompurwokerto.ac.id/presensi';
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Browser(),
+                                    ),
+                                  );
+                                  TitleFastMenu.titleFastMenu = "E-Presensi";
+                                });
+                              },
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: Colors.purple,
@@ -66,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Container(
@@ -89,7 +122,19 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  CurrentUrl.currentUrl =
+                                      'https://student.amikompurwokerto.ac.id/rincian_nilai_new';
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Browser(),
+                                    ),
+                                  );
+                                  TitleFastMenu.titleFastMenu = "Rincian Nilai";
+                                });
+                              },
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: Colors.deepOrange,
@@ -104,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Container(
@@ -127,7 +172,20 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  CurrentUrl.currentUrl =
+                                      'https://student.amikompurwokerto.ac.id/pengumuman';
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Browser(),
+                                    ),
+                                  );
+                                  TitleFastMenu.titleFastMenu =
+                                      "Berita Akademik";
+                                });
+                              },
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: Colors.green,
@@ -142,7 +200,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Container(
@@ -153,44 +211,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                 "Berita Akademik",
                                 style: TextStyle(fontSize: 12),
                                 textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 100,
-                        width: 85,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                height: 45,
-                                width: 45,
-                                child: const Icon(
-                                  Icons.auto_graph,
-                                  size: 30,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              alignment: Alignment.topCenter,
-                              height: 40,
-                              width: double.infinity,
-                              child: const Text(
-                                "Hasil Studi",
-                                style: TextStyle(fontSize: 12),
                               ),
                             ),
                           ],
@@ -214,7 +234,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
-            label: "Student",
+            label: "ELLS",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.task),
