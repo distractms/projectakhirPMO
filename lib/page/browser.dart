@@ -36,15 +36,6 @@ class _BrowserState extends State<Browser> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () async {
-            CurrentUrl.currentUrl = await controller.currentUrl() ?? '';
-            setState(() {
-              Navigator.pop(context);
-            });
-          },
-          icon: const Icon(Icons.arrow_back),
-        ),
         title: Text(TitleFastMenu.titleFastMenu),
       ),
       body: Stack(
@@ -95,7 +86,8 @@ class _BrowserState extends State<Browser> {
               ),
             )
           else if (CurrentUrl.currentUrl.toLowerCase() ==
-              'https://student.amikompurwokerto.ac.id/main')
+                  'https://student.amikompurwokerto.ac.id/main' &&
+              IndexPage.currentIndex == 0)
             Stack(
               children: [
                 SizedBox(
