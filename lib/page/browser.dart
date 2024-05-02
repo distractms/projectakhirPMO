@@ -109,9 +109,9 @@ class _BrowserState extends State<Browser> {
                   actions: [
                     TextButton(
                       onPressed: () {
-                        Navigator.pop(context);
                         // setting agar url sesuai
                         setState(() {
+                          Navigator.pop(context);
                           if (TitleFastMenu.titleFastMenu == "E-Presensi") {
                             CurrentUrl.currentUrl =
                                 'https://student.amikompurwokerto.ac.id/presensi';

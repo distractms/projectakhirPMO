@@ -22,20 +22,6 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.purple[50],
       appBar: AppBar(
         title: const Text("Portal Mahasiswa"),
-        actions: [
-          // Indikator status login web student
-          Container(
-            margin: const EdgeInsets.only(
-              right: 10,
-            ),
-            width: 15,
-            height: 15,
-            color: CurrentUrl.currentUrl.toLowerCase() ==
-                    'https://student.amikompurwokerto.ac.id/auth'
-                ? Colors.red
-                : Colors.green,
-          ),
-        ],
       ),
       body: Column(
         children: [
@@ -78,19 +64,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             GestureDetector(
-                              onTap: () async {
-                                if (CurrentUrl.currentUrl !=
-                                        "https://student.amikompurwokerto.ac.id/presensi" &&
-                                    TitleFastMenu.titleFastMenu ==
-                                        "E-Presensi") {
-                                  CurrentUrl.currentUrl ==
-                                      await controller.currentUrl();
-                                } else {
+                              onTap: () {
+                                setState(() {
                                   CurrentUrl.currentUrl =
                                       'https://student.amikompurwokerto.ac.id/presensi';
-                                }
-                                setState(() {
-                                  CurrentUrl.currentUrl;
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -137,19 +114,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             GestureDetector(
-                              onTap: () async {
-                                if (CurrentUrl.currentUrl !=
-                                        "https://student.amikompurwokerto.ac.id/rincian_nilai_new" &&
-                                    TitleFastMenu.titleFastMenu ==
-                                        "Rincian Nilai") {
-                                  CurrentUrl.currentUrl ==
-                                      await controller.currentUrl();
-                                } else {
+                              onTap: () {
+                                setState(() {
                                   CurrentUrl.currentUrl =
                                       'https://student.amikompurwokerto.ac.id/rincian_nilai_new';
-                                }
-                                setState(() {
-                                  CurrentUrl.currentUrl;
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -197,18 +165,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: [
                             GestureDetector(
                               onTap: () async {
-                                if (CurrentUrl.currentUrl !=
-                                        "https://student.amikompurwokerto.ac.id/pengumuman" &&
-                                    TitleFastMenu.titleFastMenu ==
-                                        "Berita Akademik") {
-                                  CurrentUrl.currentUrl ==
-                                      await controller.currentUrl();
-                                } else {
+                                setState(() {
                                   CurrentUrl.currentUrl =
                                       'https://student.amikompurwokerto.ac.id/pengumuman';
-                                }
-                                setState(() {
-                                  CurrentUrl.currentUrl;
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
